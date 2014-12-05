@@ -22,7 +22,7 @@ distributions:
     source_builds:
       ubuntu: hydro/source-build.yaml
   indigo:
-    distribution: [indigo/distribution.yaml]
+    distribution: [indigo/distribution.yaml, indigo/custom.yaml]
     distribution_cache: http://ros.org/rosdistro/indigo-cache.yaml.gz
     doc_builds:
       ubuntu: indigo/doc-build.yaml
