@@ -62,7 +62,7 @@ def generic_parser(buf, cb):
         if re.search(r'^\s*#', l) is not None:
             continue
         try:
-            s = re.search(r'(?!' + indent_atom + ')(\w|\?)', l).start()
+            s = re.search(r'(?!' + indent_atom + ')[^\s]', l).start()
         except:
             print_err("line %u: %s" % (i, l))
             raise
@@ -120,7 +120,8 @@ def check_order(buf):
         m = re.match(r'^(?:' + indent_atom + r')*([^:]*):.*$', l)
         prev = st[lvl]
         try:
-            item = m.groups()[0]
+            # parse as yaml to parse `"foo bar"` as string 'foo bar' not string '"foo bar"'
+            item = yaml.load(m.groups()[0])
         except:
             print('woops line %d' % i)
             raise
@@ -143,17 +144,41 @@ def main(fname):
     my_assert.clean = True
 
     # here be tests.
-    print_test("checking for trailing spaces...")
-    my_assert(no_trailing_spaces(buf))
-    print_test("checking for incorrect indentation...")
-    my_assert(correct_indent(buf))
-    print_test("checking for non-bracket package lists...")
-    my_assert(check_brackets(buf))
-    print_test("checking for item order...")
-    my_assert(check_order(buf))
-    print_test("building yaml dict...")
+    ydict = None
     try:
         ydict = yaml.load(buf)
+    except Exception:
+        pass
+    if ydict != {}:
+        print_test("checking for trailing spaces...")
+        my_assert(no_trailing_spaces(buf))
+        print_test("checking for incorrect indentation...")
+        my_assert(correct_indent(buf))
+        print_test("checking for non-bracket package lists...")
+        my_assert(check_brackets(buf))
+        print_test("checking for item order...")
+        my_assert(check_order(buf))
+        print_test("building yaml dict...")
+    else:
+        print_test("skipping file with empty dict contents...")
+    try:
+        ydict = yaml.load(buf)
+
+        # ensure that values don't contain whitespaces
+        whitespace_whitelist = ["mountain lion"]
+        def walk(node):
+            if isinstance(node, dict):
+                for key, value in node.items():
+                    walk(key)
+                    walk(value)
+            if isinstance(node, list):
+                for value in node:
+                    walk(value)
+            if isinstance(node, str) and re.search(r'\s', node) and not node in whitespace_whitelist:
+                    print_err("value '%s' must not contain whitespaces" % node)
+                    my_assert(False)
+        walk(ydict)
+
     except Exception as e:
         print_err("could not build the dict: %s" % (str(e)))
         my_assert(False)

@@ -1,4 +1,8 @@
 facets:
+  arch: [ruby-facets]
+  fedora: [rubygem-facets]
+  osx:
+    macports: [rb-facets]
   ubuntu:
     lucid:
       apt: [libfacets-ruby]
@@ -7,8 +11,17 @@ facets:
     precise:
       apt: [ruby-facets]
     quantal:
+      apt: [ruby-facets]
+    raring:
+      apt: [ruby-facets]
+    saucy:
+      apt: [ruby-facets]
+    trusty:
       apt: [ruby-facets]
 flexmock:
+  fedora: [rubygem-flexmock]
+  osx:
+    macports: [rb-flexmock]
   ubuntu:
     lucid:
       apt: [libflexmock-ruby]
@@ -17,8 +30,16 @@ flexmock:
     precise:
       apt: [ruby-flexmock]
     quantal:
+      apt: [ruby-flexmock]
+    raring:
+      apt: [ruby-flexmock]
+    saucy:
+      apt: [ruby-flexmock]
+    trusty:
       apt: [ruby-flexmock]
 hoe:
+  arch: [ruby-hoe]
+  fedora: [rubygem-hoe]
   ubuntu:
     oneiric:
       apt: [ruby-hoe]
@@ -26,7 +47,23 @@ hoe:
       apt: [ruby-hoe]
     quantal:
       apt: [ruby-hoe]
+    raring:
+      apt: [ruby-hoe]
+    saucy:
+      apt: [ruby-hoe]
+    trusty:
+      apt: [ruby-hoe]
+jekyll:
+  ubuntu:
+    precise:
+      gem:
+        depends: [ruby1.9.3]
+        packages: [jekyll]
 nokogiri:
+  arch: [ruby-nokogiri]
+  fedora: [rubygem-nokogiri]
+  osx:
+    macports: [rb-nokogiri]
   ubuntu:
     lucid:
       apt: [libnokogiri-ruby]
@@ -36,9 +73,25 @@ nokogiri:
       apt: [ruby-nokogiri]
     quantal:
       apt: [ruby-nokogiri]
+    raring:
+      apt: [ruby-nokogiri]
+    saucy:
+      apt: [ruby-nokogiri]
+    trusty:
+      apt: [ruby-nokogiri]
 rake:
+  arch: [ruby]
+  fedora: [rubygem-rake, rubygem-rake-compiler]
+  macports: [rb-rake]
   ubuntu:
     apt: [rake]
+rake-compiler:
+  arch: [ruby-rake-compiler]
+  fedora: [rubygem-rake-compiler]
+  ubuntu:
+    apt: [rake-compiler]
 rdoc:
+  arch: [ruby]
+  fedora: [rubygem-rdoc]
   ubuntu:
     apt: [rdoc]

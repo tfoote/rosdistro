@@ -1,8 +1,8 @@
 release-name: fuerte
 repositories:
   actionlib:
-    type: hg
-    url: https://kforge.ros.org/common/actionlib
+    type: git
+    url: https://github.com/ros/actionlib.git
     version: fuerte-devel
   catkin:
     type: git
@@ -56,6 +56,15 @@ repositories:
     type: git
     url: git://github.com/ros/langs.git
     version: fuerte-devel
+  multimaster_fkie:
+    packages:
+      default_cfg_fkie: default_cfg_fkie
+      master_discovery_fkie: master_discovery_fkie
+      master_sync_fkie: master_sync_fkie
+      node_manager_fkie: node_manager_fkie
+    type: git
+    url: https://github.com/fkie/multimaster_fkie.git
+    version: master
   object_recognition_capture:
     type: git
     url: git://github.com/plasmodic/object_recognition_capture.git
