@@ -6,18 +6,18 @@ abi_incompatibility_assumed: true
 jenkins_binarydeb_job_timeout: 120
 jenkins_job_priority: 70
 jenkins_sourcedeb_job_timeout: 30
-jenkins_url: http://ec2-54-67-30-249.us-west-1.compute.amazonaws.com:8080
+jenkins_url: http://master:8080
 notifications:
   emails:
   - dthomas+buildfarm@osrfoundation.org
   maintainers: true
-package_whitelist:
-  - catkin
-  - gencpp
-  - genmsg
-  - genpy
+# package_whitelist:
+#   - catkin
+#   - gencpp
+#   - genmsg
+#   - genpy
 sync:
-  package_count: 150
+  package_count: 1
 targets:
   _config:
     apt_mirrors:
@@ -54,7 +54,7 @@ targets:
       xaePFwP+okKW1h9qvwFhNF0JSCtdJrexdCf8jGE7
       =E8ot
       -----END PGP PUBLIC KEY BLOCK-----
-    apt_target_repository: http://repos.ros.org/repos/building/
+    apt_target_repository: http://repo/ubuntu/building/
   ubuntu:
     saucy:
       amd64:
