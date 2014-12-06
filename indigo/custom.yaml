@@ -18,5 +18,7 @@ repositories:
         release: release/indigo/{package}/{version}
       url: https://github.com/tfoote/test_deployment-release.git
       version: 0.0.2-0
+tags:
+- custom_distro
 type: distribution
 version: 1
