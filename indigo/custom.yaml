@@ -8,6 +8,15 @@ release_platforms:
   ubuntu:
   - saucy
   - trusty
-repositories: {}
+repositories:
+  test_deployment:
+    release:
+      packages:
+      - test_deployment_one
+      - test_deployment_two
+      tags:
+        release: release/indigo/{package}/{version}
+      url: https://github.com/tfoote/test_deployment-release.git
+      version: 0.0.2-0
 type: distribution
 version: 1
