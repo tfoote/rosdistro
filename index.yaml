@@ -3,32 +3,8 @@
 # see REP 141: http://ros.org/reps/rep-0141.html
 ---
 distributions:
-  groovy:
-    distribution: [groovy/distribution.yaml]
-    distribution_cache: http://ros.org/rosdistro/groovy-cache.yaml.gz
-    doc_builds:
-      ubuntu: groovy/doc-build.yaml
-    release_builds:
-      ubuntu: groovy/release-build.yaml
-    source_builds:
-      ubuntu: groovy/source-build.yaml
-  hydro:
-    distribution: [hydro/distribution.yaml]
-    distribution_cache: http://ros.org/rosdistro/hydro-cache.yaml.gz
-    doc_builds:
-      ubuntu: hydro/doc-build.yaml
-    release_builds:
-      ubuntu: hydro/release-build.yaml
-    source_builds:
-      ubuntu: hydro/source-build.yaml
   indigo:
     distribution: [indigo/distribution.yaml, indigo/custom.yaml]
     distribution_cache: http://ros.org/rosdistro/indigo-cache.yaml.gz
-    doc_builds:
-      ubuntu: indigo/doc-build.yaml
-    release_builds:
-      Ubu: indigo/release-build.yaml
-    source_builds:
-      T64: indigo/source-build.yaml
 type: index
 version: 3
